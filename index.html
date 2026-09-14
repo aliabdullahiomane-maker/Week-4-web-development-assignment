@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SpendWise – Budget Dashboard</title>
+
+  <!-- Google Fonts: Poppins (headings) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <img src="money.png" alt="SpendWise icon" width="32" />
+        <span class="brand-name">SpendWise</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active">Dashboard</a>
+        <a href="#" class="nav-item">Transactions</a>
+        <a href="#" class="nav-item">Budgets</a>
+        <a href="#" class="nav-item">Reports</a>
+        <a href="#" class="nav-item">Settings</a>
+      </nav>
+    </aside>
+
+    <!-- Main content area -->
+    <div class="main-content">
+      <!-- Header -->
+      <header class="top-header">
+        <h1>SpendWise Dashboard</h1>
+        <div class="header-actions">
+          <span class="user-label">Ali Abdullahi</span>
+          <button class="btn-outline">Log out</button>
+        </div>
+      </header>
+
+      <!-- Dashboard content -->
+      <main class="dashboard-main">
+        <section class="cards-section">
+          <h2>Spending by Category</h2>
+          <p class="section-intro">
+            This week’s dashboard shows six spending categories with realistic static data.
+          </p>
+
+          <div class="cards-grid">
+            <!-- Food -->
+            <article class="card category-card" tabindex="0">
+              <div class="card-header">
+                <h3>Food</h3>
+                <span class="card-icon">🍔</span>
+              </div>
+              <div class="card-body">
+                <p class="card-amount">$210.00</p>
+                <p class="card-detail">Groceries, restaurants, coffee</p>
+              </div>
+            </article>
+
+            <!-- Transport -->
+            <article class="card category-card" tabindex="0">
+              <div class="card-header">
+                <h3>Transport</h3>
+                <span class="card-icon">🚌</span>
+              </div>
+              <div class="card-body">
+                <p class="card-amount">$45.50</p>
+                <p class="card-detail">Bus fare, fuel, rideshare</p>
+              </div>
+            </article>
+
+            <!-- Rent -->
+            <article class="card category-card" tabindex="0">
+              <div class="card-header">
+                <h3>Rent</h3>
+                <span class="card-icon">🏠</span>
+              </div>
+              <div class="card-body">
+                <p class="card-amount">$300.00</p>
+                <p class="card-detail">Monthly housing cost</p>
+              </div>
+            </article>
+
+            <!-- Entertainment -->
+            <article class="card category-card" tabindex="0">
+              <div class="card-header">
+                <h3>Entertainment</h3>
+                <span class="card-icon">🎬</span>
+              </div>
+              <div class="card-body">
+                <p class="card-amount">$35.00</p>
+                <p class="card-detail">Streaming, movies, games</p>
+              </div>
+            </article>
+
+            <!-- Savings -->
+            <article class="card category-card" tabindex="0">
+              <div class="card-header">
+                <h3>Savings</h3>
+                <span class="card-icon">🐷</span>
+              </div>
+              <div class="card-body">
+                <p class="card-amount">$120.00</p>
+                <p class="card-detail">Emergency fund, goals</p>
+              </div>
+            </article>
+
+            <!-- Utilities -->
+            <article class="card category-card" tabindex="0">
+              <div class="card-header">
+                <h3>Utilities</h3>
+                <span class="card-icon">💡</span>
+              </div>
+              <div class="card-body">
+                <p class="card-amount">$85.00</p>
+                <p class="card-detail">Electricity, water, internet</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

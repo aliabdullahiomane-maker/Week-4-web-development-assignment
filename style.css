@@ -1,0 +1,363 @@
+/* ==============================
+   CSS Custom Properties (Theme)
+   ============================== */
+:root {
+  /* Brand & accent */
+  --brand-color: #2563eb;       /* Blue */
+  --accent-color: #16a34a;      /* Green */
+
+  /* Surfaces & backgrounds */
+  --surface-color: #ffffff;
+  --bg-color: #f3f4f6;
+
+  /* Text colors */
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+
+  /* UI colors */
+  --border-color: #e5e7eb;
+  --card-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  --card-shadow-hover: 0 10px 24px rgba(0, 0, 0, 0.12);
+
+  /* Layout */
+  --sidebar-width: 260px;
+  --header-height: 64px;
+  --radius: 12px;
+}
+
+/* ==============================
+   Global reset & base
+   ============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  line-height: 1.6;
+  background: var(--bg-color);
+  color: var(--text-primary);
+}
+
+h1, h2, h3 {
+  font-family: "Poppins", Arial, sans-serif;
+  color: var(--text-primary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ==============================
+   Dashboard layout (CSS Grid)
+   ============================== */
+.dashboard {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+}
+
+/* ==============================
+   Sidebar
+   ============================== */
+.sidebar {
+  grid-row: 1 / -1;
+  background: var(--surface-color);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.25rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 0.75rem;
+}
+
+.sidebar-header img {
+  border-radius: 6px;
+}
+
+.brand-name {
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--brand-color);
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-weight: 500;
+  transition: background 200ms ease, color 200ms ease;
+}
+
+.nav-item:hover,
+.nav-item:focus {
+  background: #eff6ff;
+  color: var(--brand-color);
+  outline: none;
+}
+
+.nav-item.active {
+  background: #dbeafe;
+  color: var(--brand-color);
+  font-weight: 600;
+}
+
+/* ==============================
+   Main content area
+   ============================== */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* important for flex children with long text */
+}
+
+/* Header */
+.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--surface-color);
+  border-bottom: 1px solid var(--border-color);
+  height: var(--header-height);
+}
+
+.top-header h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-label {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.btn-outline {
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 200ms ease, border-color 200ms ease;
+}
+
+.btn-outline:hover,
+.btn-outline:focus {
+  background: #f9fafb;
+  border-color: #d1d5db;
+  outline: none;
+}
+
+/* Dashboard main */
+.dashboard-main {
+  flex: 1;
+  padding: 1.5rem;
+}
+
+.cards-section {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--card-shadow);
+}
+
+.cards-section h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.4rem;
+}
+
+.section-intro {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+/* ==============================
+   Cards grid (CSS Grid)
+   ============================== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+/* ==============================
+   Category card (Flexbox inside)
+   ============================== */
+.category-card {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  cursor: pointer;
+}
+
+/* Micro-interactions: hover & focus (≤250ms) */
+.category-card:hover,
+.category-card:focus {
+  transform: translateY(-3px);
+  box-shadow: var(--card-shadow-hover);
+  outline: none;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.card-header h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.card-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.card-amount {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--brand-color);
+}
+
+.card-detail {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* ==============================
+   Responsive layout (below 768px)
+   ============================== */
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-columns: 1fr; /* single column layout */
+  }
+
+  .sidebar {
+    grid-row: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+  }
+
+  .sidebar-header {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .nav-item {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr; /* single column for cards */
+  }
+
+  .top-header {
+    padding: 0.75rem 1rem;
+  }
+
+  .dashboard-main {
+    padding: 1rem;
+  }
+}
+
+/* ==============================
+   Dark theme (stretch goal)
+   ============================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface-color: #0b0f19;
+    --bg-color: #05080f;
+
+    --text-primary: #e5e7eb;
+    --text-secondary: #9ca3af;
+
+    --border-color: #1f2937;
+    --card-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+    --card-shadow-hover: 0 10px 24px rgba(0, 0, 0, 0.6);
+  }
+
+  .sidebar,
+  .top-header,
+  .cards-section,
+  .category-card {
+    background: var(--surface-color);
+  }
+
+  .nav-item:hover,
+  .nav-item:focus {
+    background: #0f172a;
+  }
+
+  .nav-item.active {
+    background: #1e3a8a;
+    color: #93c5fd;
+  }
+
+  .btn-outline:hover,
+  .btn-outline:focus {
+    background: #0f172a;
+    border-color: #334155;
+  }
+}
